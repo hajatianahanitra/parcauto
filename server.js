@@ -21,6 +21,7 @@ app.use(connect.json());
 app.use(connect.urlencoded());
 
 // Routes
+var chgpass = require('config/chgpass');
 app.listen(port);
 
 console.log('The App runs on port ' + port);
