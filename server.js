@@ -21,12 +21,6 @@ app.use(connect.json());
 app.use(connect.urlencoded());
 
 // Routes
-var chgpass = require('config/chgpass');
-var register = require('config/register');
-var login = require('config/login');
-var liste = require('config/liste');
-var recherche = require('config/recherche');
-var ajout = require('config/ajout');
 app.listen(port);
 
 console.log('The App runs on port ' + port);
