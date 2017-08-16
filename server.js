@@ -22,7 +22,7 @@ app.use(connect.urlencoded());
 
 // Routes
 
-require('toutes/routes.js')(app);
+require('routes/routes.js')(app);
 
 app.listen(port);
 
