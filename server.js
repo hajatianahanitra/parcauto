@@ -20,8 +20,11 @@ app.use(connect.logger('dev'));
 app.use(connect.json());  
 app.use(connect.urlencoded());
 
-// Routes
-var chgpass = require('config/chgpass');
+require('./routes/routes.js')(app);
+
+
+
+
 app.listen(port);
 
 console.log('The App runs on port ' + port);
