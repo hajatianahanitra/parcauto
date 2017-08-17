@@ -66,7 +66,7 @@ module.exports = function(app) {
 
 app.get('/voitures', function(req, res) {
 		liste.listevoitures(function (found) {
-			res.json(found);
+			//res.json(found);
 		});
 	});
 
@@ -89,7 +89,8 @@ app.get('/employes', function(req, res) {
 });
 app.get('/departements', function(req, res) {
 	liste.listedepartements(function (found) {
-		res.json(found);
+		//res.json(found);
+		res.send(found);
 	});
 });
 app.get('/typeutilisateurs', function(req, res) {
