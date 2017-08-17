@@ -4,7 +4,7 @@ var login = require('config/login');
 var liste = require('config/liste');
 var recherche = require('config/recherche');
 var ajout = require('config/ajout');
-
+		
 module.exports = function(app) {
 	app.get('/', function(req, res) {
 
@@ -18,7 +18,7 @@ module.exports = function(app) {
 
 		login.login(email,password,function (found) {
 			console.log(found);
-			res.json(found);
+			res.send(found);
 	});
 	});
 
@@ -36,7 +36,7 @@ module.exports = function(app) {
 
 		chgpass.cpass(id,opass,npass,function(found){
 			console.log(found);
-			res.json(found);
+			res.send(found);
 	});	
 	});
 
@@ -47,7 +47,7 @@ module.exports = function(app) {
 		
 		chgpass.respass_init(email,function(found){
 			console.log(found);
-			res.json(found);
+			res.send(found);
 	});		
 	});
 	
@@ -60,99 +60,98 @@ module.exports = function(app) {
 		
 		chgpass.respass_chg(email,code,npass,function(found){			
 			console.log(found);
-			res.json(found);
+			res.send(found);
 	});		
 	});
 
 app.get('/voitures', function(req, res) {
 		liste.listevoitures(function (found) {
-			//res.json(found);
+			//res.send(found);
 		});
 	});
 
 app.get('/voituresdisponibles', function(req, res) {
 	liste.listevoituresdisponibles(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 
 app.get('/voituresenmission', function(req, res) {
 	liste.listevoituresdisponibles(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 
 app.get('/employes', function(req, res) {
 	liste.listeemployes(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 app.get('/departements', function(req, res) {
 	liste.listedepartements(function (found) {
-		//res.json(found);
 		res.send(found);
 	});
 });
 app.get('/typeutilisateurs', function(req, res) {
 	liste.listetypeutilisateurs(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 app.get('/typeentretiens', function(req, res) {
 	liste.listetypeentretiens(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 app.get('/typevoitures', function(req, res) {
 	liste.listetypevoitures(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 app.get('/parametre', function(req, res) {
 	liste.parametre(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 app.get('/lieu', function(req, res) {
 	liste.lieu(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 app.get('/listedemandesnonrepondus', function(req, res) {
 	liste.listedemandesnonrepondus(function (found) {
-		res.json(found);
+		res.send(found);
 	});
 });
 	
 
 	app.get('/recherchehistoriqueparvoitures', function(req, res) {
 		recherche.recherchehistoriqueparvoitures(function (found) {
-			res.json(found);
+			res.send(found);
 		});
 	});
 
 
 	app.get('/recherchevoiture', function(req, res) {
 		recherche.recherchehistoriqueparvoitures(function (found) {
-			res.json(found);
+			res.send(found);
 		});
 	});
 
 	app.get('/recherchehistoriquepardate', function(req, res) {
 		recherche.recherchehistoriquepardate(function (found) {
-			res.json(found);
+			res.send(found);
 		});		
 	});
 
 	app.get('/rechercheemp', function(req, res) {
 		console.log(req.body);
 		recherche.rechercheemployes(req.body.nom,function (found) {
-			res.json(found);
+			res.send(found);
 		});
 	});
 	app.get('/recherchechauffeursdisponible', function(req, res) {
 		recherche.recherchechauffeursdisponible(function (found) {
-			res.json(found);
+			res.send(found);
 		});
 	});
 	app.get('/ajoutentretien', function(req, res) {
