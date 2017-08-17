@@ -27,6 +27,10 @@ module.exports = function(app) {
 			var email = req.body.email;
         	var password = req.body.password;
 	});
+	app.post('/modifieruser',function(req,res){
+			var email = req.body.email;
+        	var password = req.body.password;
+	});
 	
 
 	app.post('/api/chgpass', function(req, res) {
@@ -39,7 +43,7 @@ module.exports = function(app) {
 			res.send(found);
 	});	
 	});
-
+	
 
 	app.post('/api/resetpass', function(req, res) {
 	
@@ -122,7 +126,11 @@ app.get('/listedemandesnonrepondus', function(req, res) {
 		res.send(found);
 	});
 });
-	
+app.get('/listenotifications', function(req, res) {
+	liste.listenotifications(function (found) {
+		res.send(found);
+	});
+});
 
 	app.get('/recherchehistoriqueparvoitures', function(req, res) {
 		recherche.recherchehistoriqueparvoitures(function (found) {
@@ -133,6 +141,11 @@ app.get('/listedemandesnonrepondus', function(req, res) {
 
 	app.get('/recherchevoiture', function(req, res) {
 		recherche.recherchehistoriqueparvoitures(function (found) {
+			res.send(found);
+		});
+	});
+	app.get('/recherchevoitureparcode', function(req, res) {
+		recherche.recherchevoitureparcode(function (found) {
 			res.send(found);
 		});
 	});
@@ -161,6 +174,11 @@ app.get('/listedemandesnonrepondus', function(req, res) {
 	});
 	app.get('/ajoutmission', function(req, res) {
  		ajout.ajoutmission(objet,function (found) {
+			
+		});
+	});
+	app.get('/ajoutdemande', function(req, res) {
+ 		ajout.ajoutdemande(objet,function (found) {
 			
 		});
 	});
