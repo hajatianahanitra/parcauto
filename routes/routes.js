@@ -70,7 +70,7 @@ module.exports = function(app) {
 
 app.get('/voitures', function(req, res) {
 		liste.listevoitures(function (found) {
-			//res.send(found);
+			res.send(found);
 		});
 	});
 
