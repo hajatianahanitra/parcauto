@@ -16,13 +16,15 @@ app.get('/', function(req, res) {
 	});
 
 
-	app.get('/login',function(req,res){
-		var email = req.body.email;
-        	var password = req.body.password;
-		login.login(email,password,function (found) {
+	app.get('/login/:email/:password',function(req,res){
+		var email = req.params.email;
+        	var password = req.params.password;
+
+		/*login.login(email,password,function (found) {
 			console.log(found);
 			res.send(found);
-	});
+	});*/
+res.send(email);
 	});
 
 
@@ -30,9 +32,10 @@ app.get('/', function(req, res) {
 	console.log(req.body.email+"jjj"+req.body.password);
 			var email = req.body.email;
         	var password = req.body.password;
-				liste.sinscrire(email,password,function (found) {
+			/*	liste.sinscrire(email,password,function (found) {
 			res.send(found);
-		});
+		});*/
+res.send(email);
 	});
 	app.post('/modifieruser',function(req,res){
 			var email = req.body.email;
