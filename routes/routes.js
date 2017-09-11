@@ -35,7 +35,7 @@ res.send(email+" , "+password);
 			/*	liste.sinscrire(email,password,function (found) {
 			res.send(found);
 		});*/
-res.send(email);
+res.send(email+" , "+password);
 	});
 	app.post('/modifieruser',function(req,res){
 			var email = req.body.email;
