@@ -78,13 +78,13 @@ res.send(email+" , "+password);
 	});		
 	});
 
-app.get('/voitur', function(req, res) {
+app.get('/voitures', function(req, res) {
 		liste.listevoitures(function (found) {
 			res.send(found);
 		});
 	});
 
-app.get('/voituresdisponibles', function(req, res) {
+app.get('/voituresdisponibl', function(req, res) {
 	liste.listevoituresdisponibles(function (found) {
 		res.send(found);
 	});
