@@ -4,10 +4,14 @@ var login = require('config/login');
 var liste = require('config/liste');
 var recherche = require('config/recherche');
 var ajout = require('config/ajout');
-		
-module.exports = function(app) {
-	app.get('/', function(req, res) {
+var bodyParser = require('body-parser')
 
+module.exports = function(app) {
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+var jsonParser = bodyParser.json({ type: 'application/*+json' } );
+
+app.get('/', function(req, res) {
 		res.end(""); 
 	});
 
@@ -15,7 +19,6 @@ module.exports = function(app) {
 	app.get('/login',function(req,res){
 		var email = req.body.email;
         	var password = req.body.password;
-
 		login.login(email,password,function (found) {
 			console.log(found);
 			res.send(found);
@@ -23,9 +26,13 @@ module.exports = function(app) {
 	});
 
 
-	app.post('/register',function(req,res){
+	app.post('/register',jsonParser,function(req,res){
+	console.log(req.body.email+"jjj"+req.body.password);
 			var email = req.body.email;
         	var password = req.body.password;
+				liste.sinscrire(email,password,function (found) {
+			res.send(found);
+		});
 	});
 	app.post('/modifieruser',function(req,res){
 			var email = req.body.email;
