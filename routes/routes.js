@@ -78,7 +78,7 @@ res.send(email+" , "+password);
 	});		
 	});
 
-app.get('/voitures', function(req, res) {
+app.get('/voitur', function(req, res) {
 		liste.listevoitures(function (found) {
 			res.send(found);
 		});
