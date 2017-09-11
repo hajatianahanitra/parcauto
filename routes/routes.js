@@ -24,7 +24,7 @@ app.get('/', function(req, res) {
 			console.log(found);
 			res.send(found);
 	});*/
-res.send(email);
+res.send(email+" , "+password);
 	});
 
 
